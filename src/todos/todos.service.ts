@@ -59,4 +59,13 @@ export class TodosService {
     this.todos = updatedTodos;
     return { updatedTodo: 1, todo: todo };
   }
+
+  delete(id:string) {
+    const todo = this.todos.find((todo) => todo.id === +id);
+    if (!todo) {
+      return new NotFoundException('Todo not found');
+    }
+    this.todos = this.todos.filter((todo) => todo.id !== +id);
+    return { deletedTodo: 1 };
+  }
 }
