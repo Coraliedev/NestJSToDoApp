@@ -27,4 +27,7 @@ export class TodosService {
   findAll(): Todo[] {
     return this.todos;
   }
+  create(newTodo: Todo) {
+    this.todos.push(newTodo);
+  }
 }
